@@ -1,0 +1,55 @@
+﻿@page
+@model WikiAndSupport.Pages.IssueDetailModel
+
+@{
+    ViewData["Title"] = "查看明细";
+}
+
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Issue.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Issue.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Issue.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(Model.Issue.Content)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Issue.CommitBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Issue.CommitBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Issue.CommitOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Issue.CommitOn)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./NewAnswer" asp-route-id="@Model.Issue.IssueId">评论</a> |
+    <a asp-page="./Index">返回首页</a>
+</div>
+@{
+    var index = 0;
+
+    @foreach (var answer in Model.Issue.Answers)
+    {
+        @await Html.PartialAsync("_AnswerSection", answer,
+                                 new ViewDataDictionary(ViewData)
+                                 {
+                                     { "index", index+1 }
+                                 })
+
+        index++;
+    }
+}

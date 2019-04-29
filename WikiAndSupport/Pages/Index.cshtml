@@ -1,0 +1,60 @@
+﻿@page
+@model WikiAndSupport.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<p></p>
+<table>
+    <tr>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
+                    反馈状态
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" asp-page-handler="QClosed">已关闭的提问</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" asp-page-handler="QUnClosed">已提交的提问</a></li>
+                </ul>
+            </div>
+
+        </td>
+        <td>&nbsp;</td>
+        <td>
+            <a asp-page="/NewIssue" class="btn btn-default">我要提问</a>
+        </td>
+    </tr>
+</table>
+<p></p>
+@if (Model.HasEasIssue)
+{
+    <table>
+        @*<thead>
+                <tr>
+                    <th> @Html.DisplayNameFor(model => model.EasIssueList[0].Title)</th>
+                    <th> @Html.DisplayNameFor(model => model.EasIssueList[0].Content)</th>
+                </tr>
+            </thead>*@
+        <tbody>
+            @foreach (var m in Model.Issues)
+            {
+                <tr>
+                    <td><a asp-page="./IssueDetail" asp-route-id=@m.IssueId>@m.Title</a> </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>@Html.DisplayFor(f => m.CommitBy)</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>@Html.DisplayFor(f => m.CreatedOn)</td>
+                </tr>
+                @*<tr>
+                        <td>答：@Html.Raw(m.Content)</td>
+                    </tr>*@
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <p>没有查到结果.</p>
+}
+

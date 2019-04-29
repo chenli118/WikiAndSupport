@@ -1,0 +1,31 @@
+﻿@page
+@model WikiAndSupport.Pages.IssueListModel
+
+@{
+    ViewData["Title"] = "问答列表";
+}
+ 
+
+<p>
+    <a asp-page="NewIssue">提交新问题</a>
+</p>
+<table class="table"> 
+    <tbody>
+@foreach (var item in Model.Issue) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommitBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommitOn)
+            </td>
+            <td>               
+                <a asp-page="./IssueDetail" asp-route-id="@item.IssueId">详细... </a>  
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

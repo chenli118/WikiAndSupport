@@ -13,7 +13,7 @@ namespace WikiAndSupport.Migrations.Issue
                 columns: table => new
                 {
                     IssueId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CreatedId = table.Column<long>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedName = table.Column<string>(maxLength: 50, nullable: true),
@@ -37,7 +37,7 @@ namespace WikiAndSupport.Migrations.Issue
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CreatedId = table.Column<long>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedName = table.Column<string>(maxLength: 50, nullable: true),
@@ -59,7 +59,7 @@ namespace WikiAndSupport.Migrations.Issue
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CreatedId = table.Column<long>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedName = table.Column<string>(maxLength: 50, nullable: true),
@@ -91,7 +91,7 @@ namespace WikiAndSupport.Migrations.Issue
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CreatedId = table.Column<long>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedName = table.Column<string>(maxLength: 50, nullable: true),

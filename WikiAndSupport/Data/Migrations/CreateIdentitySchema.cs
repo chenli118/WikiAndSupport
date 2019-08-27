@@ -102,7 +102,7 @@ namespace WikiAndSupport.Data.Migrations
 
                     Id = table.Column<int>(nullable: false)
 
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
 
                     RoleId = table.Column<string>(nullable: false),
 
@@ -144,7 +144,7 @@ namespace WikiAndSupport.Data.Migrations
 
                     Id = table.Column<int>(nullable: false)
 
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
 
                     UserId = table.Column<string>(nullable: false),
 
